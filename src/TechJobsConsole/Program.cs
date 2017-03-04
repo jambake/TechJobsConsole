@@ -63,7 +63,7 @@ namespace TechJobsConsole
                     // Fetch results
                     if (columnChoice.Equals("all"))
                     {
-                        searchResults = JobData.FindByValue(columnChoice, searchTerm);
+                        searchResults = JobData.FindByValue(searchTerm);
                         PrintJobs(searchResults);
                     }
                     else
@@ -126,10 +126,10 @@ namespace TechJobsConsole
             location: Saint Louis
             core competency: Statistical Analysis
             */
-
+            int count = 1;
             foreach (Dictionary<string, string> someJob in someJobs)
             {
-                Console.WriteLine("*****");
+                Console.WriteLine("{0}.) *****", count);
                 foreach (KeyValuePair<string, string> kvp in someJob)
                 {
                     string title = kvp.Key;
@@ -138,6 +138,7 @@ namespace TechJobsConsole
                     Console.WriteLine(title + ": " + result);
                 }
                 Console.WriteLine("*****");
+                count++;
             }
             
         }
